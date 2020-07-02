@@ -26,7 +26,14 @@ class QueryController extends Controller
         // Test database connection
         try {
             $pdo = DB::connection()->getPdo();
-            return response()->json(["data" => $pdo, "status" => true, "message"=> "se conecto exitosamente"], 200);
+            if(DB::connection()->getDatabaseName())
+            {
+
+                return response()->json(["data" => $pdo, "status" => true, "message"=> "conncted sucessfully to database ".DB::connection()->getDatabaseName()], 200);
+            }else {
+                return response()->json(["data" => $pdo, "status" => false, "message"=> "Could not connect to the database"], 500);
+            }
+
         } catch (\Exception $e) {
             return response()->json(["data" => $e, "status" => false, "message"=> "Could not connect to the database.  Please check your configuration. error"], 500);
         }
