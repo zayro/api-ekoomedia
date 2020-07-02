@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "092858f2-f3fa-49a9-9f76-b0c5509d2c7a",
+		"name": "Request",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "{{url}}/ObtenerMenu",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/ObtenerMenu",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"ObtenerMenu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/ObtenerInformacion",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/ObtenerInformacion",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"ObtenerInformacion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/GuardaInformacion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"asdasd\",\r\n    \"edad\": \"10\",\r\n    \"celular\": \"301312548\",\r\n    \"email\": \"zayro@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/GuardaInformacion",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"GuardaInformacion"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
