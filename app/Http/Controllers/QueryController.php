@@ -17,9 +17,22 @@ use Illuminate\Support\Facades\Validator;
 use Dotenv\Dotenv;
 
 use PDO;
+use Exception;
 
 class QueryController extends Controller
 {
+    public function conexion(){
+
+        // Test database connection
+        try {
+            $pdo = DB::connection()->getPdo();
+            return response()->json(["data" => $pdo, "status" => true, "message"=> "se conecto exitosamente"], 200);
+        } catch (\Exception $e) {
+            return response()->json(["data" => $e, "status" => false, "message"=> "Could not connect to the database.  Please check your configuration. error"], 500);
+        }
+
+    }
+
     public function getMenu()
     {
         try {

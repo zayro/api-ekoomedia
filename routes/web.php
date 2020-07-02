@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['cors']], function () {
     //Rutas a las que se permitirá acceso
+    Route::get('/conexion', 'QueryController@conexion');
 
     Route::get('/ObtenerMenu', 'QueryController@getMenu');
 
