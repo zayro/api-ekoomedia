@@ -46,7 +46,7 @@ class QueryController extends Controller
             $data = DB::select('select * from menu', []);
             return response()->json(["data" => $data, "status" => true, "message"=> "se consulto exitosamente"], 200);
         } catch (QueryException $e) {
-            return response()->json(["data" => $e, "status" => false, "message"=> "ocurrio un error"], 500);
+            return response()->json(["data" => $e, "status" => false, "message"=> "ocurrio un error", "log" => DB::getQueryLog()], 500);
         }
     }
 
