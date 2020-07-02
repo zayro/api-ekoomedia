@@ -43,6 +43,7 @@ class QueryController extends Controller
     public function getMenu()
     {
         try {
+            DB::connection()->enableQueryLog();
             $data = DB::select('select * from menu', []);
             return response()->json(["data" => $data, "status" => true, "message"=> "se consulto exitosamente"], 200);
         } catch (QueryException $e) {
